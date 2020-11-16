@@ -1,0 +1,110 @@
+﻿<Window x:Class="POS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:POS"
+        mc:Ignorable="d"
+        Title="Login Screen" Height="800" Width="1400"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+        <Image Margin="32,120" Source="Images/login_security.jpg"
+            Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" 
+            Stretch="Fill" Grid.ColumnSpan="2"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="12*"/>
+                <RowDefinition Height="238*"/>
+                <RowDefinition Height="76*"/>
+                <RowDefinition Height="73*"/>
+                <RowDefinition Height="130*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="186*"/>
+                <RowDefinition Height="12*"/>
+            </Grid.RowDefinitions>
+
+            <Rectangle Fill="#FF1BB498"/>
+
+            <Rectangle Fill="#FF1BB498"
+                Grid.Row="7"/>
+
+
+            <TextBlock Text="SIGN IN TO YOUR ACCOUNT"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="42px"
+                       Grid.Row="1" FontWeight="ExtraBold" 
+                       Foreground="#FF1BB498" Height="56" Margin="102,98,101,84" Width="584"
+            />
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="113*"/>
+                    <ColumnDefinition Width="281*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Label HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,12,0" FontSize="16px" FontWeight="Bold">
+                    Email Address:
+                </Label>
+
+                <TextBox
+                    x:Name="emailField"
+                    Text="itsatifsiddiqui@gmail.com"
+                     Grid.Column="2" HorizontalAlignment="Left" 
+                     TextWrapping="WrapWithOverflow"
+                     VerticalAlignment="Center" Padding="0"
+                     Margin="16,12,0,12"
+                     MinWidth="300" ScrollViewer.CanContentScroll="True"
+                     MaxLines="1" Height="24" Width="120"
+                     materialDesign:HintAssist.Hint="Email Address"
+                     materialDesign:HintAssist.HelperText="itsatifsiddiqui@gmail.com"
+                     FontSize="16"
+                     MinHeight="32"
+                  />
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="113*"/>
+                    <ColumnDefinition Width="281*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Label HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,22,12,23" FontSize="15px" FontWeight="Bold" Width="117">
+                    Enter Password:
+                </Label>
+
+                <PasswordBox
+                     x:Name="passwordField"
+                     Password="123456"
+                     Grid.Column="2" HorizontalAlignment="Left" 
+                     VerticalAlignment="Center" Padding="0"
+                     Margin="16,12,0,12"
+                     MinWidth="300" ScrollViewer.CanContentScroll="True"
+                     Height="24" Width="auto"
+                     materialDesign:HintAssist.Hint="Password"
+                     materialDesign:HintAssist.HelperText="At least 6 characters"
+                     FontSize="16"
+                     MinHeight="32"
+                  />
+            </Grid>
+            <Button x:Name="loginButton" Grid.Row="4"  Content="Login" 
+                    HorizontalAlignment="Left" Grid.RowSpan="1"
+                    VerticalAlignment="Center" 
+                    Width="300" Padding="32,4" Height="48" Margin="96,41,0,41"
+                    Style="{StaticResource MaterialDesignRaisedButton}" Click="onLoginButtonClick"
+                    />
+        </Grid>
+
+    </Grid>
+</Window>
