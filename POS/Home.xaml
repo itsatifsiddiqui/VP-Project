@@ -4,105 +4,466 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:productsData="clr-namespace:POS.Models"
         xmlns:local="clr-namespace:POS"
         mc:Ignorable="d"
-        Title="DashBoard" Height="800" Width="1400"
-        WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+        Title="DashBoard" Height="800" Width="1600"
+        WindowStartupLocation="CenterScreen" ResizeMode="CanResize">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="151*"/>
+            <ColumnDefinition Width="645*"/>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel LastChildFill="True" Grid.ColumnSpan="2" >
+
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_Menu">
+                    <MenuItem Header="_About" Click="About_item_click" />
+                    <MenuItem Header="_Exit" Click="Exit_item_click" />
+                </MenuItem>
+            </Menu>
 
 
-        <TabControl
+
+
+            <TabControl
             Width="auto"
-            Style="{StaticResource MaterialDesignNavigatilRailTabControl}">
-            <TabItem
-                Header="{materialDesign:PackIcon Kind=Home, Size=32}"
+            x:Name="navigationRail"
+            Style="{StaticResource MaterialDesignNavigatilRailTabControl}" Grid.ColumnSpan="2">
+                <TabItem
+                Name="tabitem0"
+                Header="{materialDesign:PackIcon Kind=ViewDashboardOutline, Size=32}"
                 Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="24*"/>
-                        <RowDefinition Height="233*"/>
-                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24*"/>
+                            <RowDefinition Height="233*"/>
+                        </Grid.RowDefinitions>
 
-                    <materialDesign:Card Grid.Row="0" >
+                        <materialDesign:Card Grid.Row="0" >
 
-                        <TextBlock
+                            <TextBlock
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             FontSize="36"
                             FontWeight="Bold"
                             FontFamily="Nirmala UI"> 
-                                Home
-                        </TextBlock>
+                                DASHBOARD
+                            </TextBlock>
 
-                    </materialDesign:Card>
+                        </materialDesign:Card>
 
-                    <Grid Grid.Row="1" >
+                        <Grid Grid.Row="1" >
+
+                            <StackPanel>
+                                <Grid Margin="32,32,32,32">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <materialDesign:Card Grid.Column="0" Margin="8,8,8,8">
+                                        <StackPanel  Margin="16,16,16,16">
+                                            <TextBlock
+                                            HorizontalAlignment="Left"
+                                            FontSize="16"
+                                            FontWeight="DemiBold"
+                                            FontFamily="Nirmala UI"
+                                            Foreground="#FF161616"> 
+                                            Products Sold Today
+                                            </TextBlock>
+
+
+                                            <TextBlock
+                                            Padding="0,8,0,8"
+                                            HorizontalAlignment="Left"
+                                            FontSize="48"
+                                            FontWeight="Bold"
+                                            FontFamily="Nirmala UI"
+                                            Foreground="#FF161616"> 
+                                            100
+                                            </TextBlock>
+
+                                            <Rectangle Height="4"  Fill="#FF1BB498"/>
+                                        </StackPanel>
+                                    </materialDesign:Card>
+
+                                    <materialDesign:Card Grid.Column="1" Margin="8,8,8,8">
+                                        <StackPanel  Margin="16,16,16,16">
+                                            <TextBlock
+                                            HorizontalAlignment="Left"
+                                            FontSize="16"
+                                            FontWeight="DemiBold"
+                                            FontFamily="Nirmala UI"
+                                            Foreground="#FF161616"> 
+                                            Products Sold This Week
+                                            </TextBlock>
+
+
+                                            <TextBlock
+                                            Padding="0,8,0,8"
+                                            HorizontalAlignment="Left"
+                                            FontSize="48"
+                                            FontWeight="Bold"
+                                            FontFamily="Nirmala UI"
+                                            Foreground="#FF161616"> 
+                                            1000
+                                            </TextBlock>
+
+                                            <Rectangle Height="4"  Fill="#FF1BB498"/>
+
+                                        </StackPanel>
+                                    </materialDesign:Card>
+
+
+                                    <materialDesign:Card Grid.Column="2" Margin="8,8,8,8">
+                                        <StackPanel  Margin="16,16,16,16">
+                                            <TextBlock
+                                            HorizontalAlignment="Left"
+                                            FontSize="16"
+                                            FontWeight="DemiBold"
+                                            FontFamily="Nirmala UI"
+                                            Foreground="#FF161616"> 
+                                            Overall Gross Profit
+                                            </TextBlock>
+
+
+                                            <TextBlock
+                                            Padding="0,8,0,8"
+                                            HorizontalAlignment="Left"
+                                            FontSize="48"
+                                            FontWeight="Bold"
+                                            FontFamily="Nirmala UI"
+                                            Foreground="#FF161616"> 
+                                            140000 RS
+                                            </TextBlock>
+
+                                            <Rectangle Height="4"  Fill="#FF1BB498"/>
+
+                                        </StackPanel>
+                                    </materialDesign:Card>
+
+                                    <materialDesign:Card Grid.Column="3 " Margin="8,8,8,8">
+                                        <StackPanel  Margin="16,16,16,16">
+                                            <TextBlock
+                                            HorizontalAlignment="Left"
+                                            FontSize="16"
+                                            FontWeight="DemiBold"
+                                            FontFamily="Nirmala UI"
+                                            Foreground="#FF161616"> 
+                                            Total Products
+                                            </TextBlock>
+
+
+                                            <TextBlock
+                                            Padding="0,8,0,8"
+                                            HorizontalAlignment="Left"
+                                            FontSize="48"
+                                            FontWeight="Bold"
+                                            FontFamily="Nirmala UI"
+                                            Foreground="#FF161616"> 
+                                            12000
+                                            </TextBlock>
+
+                                            <Rectangle Height="4"  Fill="#FF1BB498"/>
+
+                                        </StackPanel>
+                                    </materialDesign:Card>
+
+                                </Grid>
+
+                                <Grid Margin="32,8,32,48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <materialDesign:Card Grid.Column="0" Margin="8,8,8,8" Foreground="#DDFFFFFF" FontWeight="Bold" FontSize="16"  >
+                                        <StackPanel  Margin="16,16,16,16" >
+
+                                            <materialDesign:PackIcon Kind="Add" Width="150" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Foreground="#FF1BB498" >
+
+                                            </materialDesign:PackIcon>
+
+
+
+                                            <Button 
+                                                x:Name="addProductButton"
+                                            Margin="0,64,0,64"
+                                            Width="400"
+                                            Height="70"
+                                            HorizontalAlignment="Center"
+                                            FontSize="22"
+                                            FontWeight="Bold"
+                                            FontFamily="Nirmala UI"
+                                            Foreground="#DDFFFFFF"
+                                            Click="addProductButton_Click"
+                                            >
+                                                Add New Product
+                                            </Button>
+
+
+
+
+                                            <Rectangle Height="4"  Fill="#FF1BB498"/>
+
+                                        </StackPanel>
+                                    </materialDesign:Card>
+
+                                    <materialDesign:Card Grid.Column="1" Margin="8,8,8,8">
+                                        <StackPanel  Margin="16,16,16,16">
+
+                                            <materialDesign:PackIcon Kind="Sale" Width="150" Height="150" HorizontalAlignment="Center" VerticalAlignment="Center" Background="White" Foreground="#FF1BB498" >
+
+                                            </materialDesign:PackIcon>
+
+                                            <Button 
+                                            Margin="0,64,0,64"
+                                            Width="400"
+                                            Height="70"
+                                            HorizontalAlignment="Center"
+                                            FontSize="22"
+                                            FontWeight="Bold"
+                                            FontFamily="Nirmala UI"
+                                            Foreground="#DDFFFFFF"
+                                             Click="Button_Click"
+                                            >
+                                                View All Sales
+                                            </Button>
+
+                                            <Rectangle Height="4"  Fill="#FF1BB498"/>
+
+                                        </StackPanel>
+                                    </materialDesign:Card>
+
+
+
+                                </Grid>
+
+
+                            </StackPanel>
+
+                        </Grid>
                     </Grid>
-                 </Grid>
-            </TabItem>
+                </TabItem>
 
-            <TabItem
+                <TabItem
+                 x:Name="productsTabItem"
+                    MouseDown="productsTabItem_MouseDown"
                  Header="{materialDesign:PackIcon Kind=Grid, Size=32}"
-                 Style="{StaticResource MaterialDesignNavigationRailTabItem}">
-                
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="24*"/>
-                        <RowDefinition Height="233*"/>
-                    </Grid.RowDefinitions>
+                 Style="{StaticResource MaterialDesignNavigationRailTabItem}" HorizontalAlignment="Left">
 
-                    <materialDesign:Card Grid.Row="0" >
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24*"/>
+                            <RowDefinition Height="233*"/>
+                        </Grid.RowDefinitions>
 
-                        <TextBlock
+                        <materialDesign:Card Grid.Row="0" >
+
+                            <TextBlock
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             FontSize="36"
                             FontWeight="Bold"
                             FontFamily="Nirmala UI"> 
-                                Products
-                        </TextBlock>
+                            Products
+                            </TextBlock>
 
-                    </materialDesign:Card>
+                        </materialDesign:Card>
 
-                    <Grid Grid.Row="1" >
+                        <Grid Grid.Row="1" >
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="5*"/>
+                                    <ColumnDefinition Width="0*" x:Name="cartColumn"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ListView Name="productsListView" Grid.Column="0">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Image" Width="150" >
+                                                <GridViewColumn.CellTemplate >
+                                                    <DataTemplate>
+                                                        <Image Source="{Binding CoverImage}"
+                                                    Width="120" Height="120" 
+                                                    HorizontalAlignment="Center" 
+                                                    VerticalAlignment="Center" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="Product Name" Width="250" >
+                                                <GridViewColumn.CellTemplate >
+                                                    <DataTemplate >
+                                                        <TextBlock Text="{Binding Name}"
+                                                           Foreground="#FF1BB498"
+                                                           FontWeight="DemiBold"
+                                                           VerticalAlignment="Center"
+                                                           FontSize="28" MinHeight="120" Height="120"
+                                                            TextWrapping="Wrap"
+                                                               />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="Product Description" Width="300" >
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding Description}"
+                                                           VerticalAlignment="Center"  
+                                                           FontSize="18" TextWrapping="Wrap" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="Quantity" Width="150" >
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate>
+                                                        <TextBlock Text="{Binding Quantity}"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"
+                                                           FontSize="22" TextWrapping="Wrap" />
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="Price" Width="100" >
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate >
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                            <TextBlock Text="{Binding Price}"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"
+                                                           FontSize="22" />
+                                                            <TextBlock Text=" RS"
+                                                           VerticalAlignment="Center"  
+                                                           FontSize="22" />
+                                                        </StackPanel>
+
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+                                            <GridViewColumn Header="Add To Cart" Width="150" x:Name="addToCartColumn" >
+                                                <GridViewColumn.CellTemplate>
+                                                    <DataTemplate >
+                                                        <Button Content="Add To Cart"
+                                                    x:Name="addToCartButton"
+                                                    ToolTip="{Binding ProductId}"
+                                                    Click="addToCartButton_Click" Foreground="White">
+
+                                                        </Button>
+
+                                                    </DataTemplate>
+                                                </GridViewColumn.CellTemplate>
+                                            </GridViewColumn>
+
+
+
+
+
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+
+
+                                <Grid Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="7*"/>
+                                        <RowDefinition Height="1*" />
+                                    </Grid.RowDefinitions>
+
+
+                                    <ListView Grid.Row="0" Name="cartItemsListView" Grid.Column="1">
+                                        <ListView.View>
+                                            <GridView>
+
+                                                <GridViewColumn Header="Product Name" Width="250" >
+                                                    <GridViewColumn.CellTemplate >
+                                                        <DataTemplate >
+                                                            <TextBlock Text="{Binding Name}"
+                                                           FontWeight="DemiBold"
+                                                           VerticalAlignment="Center"
+                                                           FontSize="22" MinHeight="60" Height="60"
+                                                            TextWrapping="Wrap"
+                                                               />
+                                                        </DataTemplate>
+                                                    </GridViewColumn.CellTemplate>
+                                                </GridViewColumn>
+
+
+                                                <GridViewColumn Header="Remove" Width="150" x:Name="removeItem" >
+                                                    <GridViewColumn.CellTemplate>
+                                                        <DataTemplate >
+                                                            <Button Content="Remove"
+                                                    x:Name="removeitembutton"
+                                                    ToolTip="{Binding ProductId}"
+                                                    Click="removeitembutton_Click" Foreground="White">
+                                                            </Button>
+
+                                                        </DataTemplate>
+                                                    </GridViewColumn.CellTemplate>
+                                                </GridViewColumn>
+
+                                            </GridView>
+                                        </ListView.View>
+                                    </ListView>
+
+
+                                    <Button x:Name="checkoutButton" Click="checkoutButton_Click" Grid.Row ="1" >Checkout</Button>
+
+                                </Grid>
+
+                            </Grid>
+
+                        </Grid>
                     </Grid>
-                </Grid>
 
-            </TabItem>
+                </TabItem>
 
-            <TabItem
+                <TabItem
                  Header="{materialDesign:PackIcon Kind=User, Size=32}"
                  Style="{StaticResource MaterialDesignNavigationRailTabItem}">
 
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="24*"/>
-                        <RowDefinition Height="233*"/>
-                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="24*"/>
+                            <RowDefinition Height="233*"/>
+                        </Grid.RowDefinitions>
 
-                    <materialDesign:Card Grid.Row="0" >
+                        <materialDesign:Card Grid.Row="0" >
 
-                        <TextBlock
+                            <TextBlock
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             FontSize="36"
                             FontWeight="Bold"
                             FontFamily="Nirmala UI"> 
                                 Account
-                        </TextBlock>
+                            </TextBlock>
 
-                    </materialDesign:Card>
+                        </materialDesign:Card>
 
-                    <Grid Grid.Row="1" Margin="32,0,32,16" VerticalAlignment="Bottom" >
-                        <Button x:Name="logoutButton" FontSize="24" Height="48" Foreground="White" Click="logoutButton_Click" Padding="16,4,16,8" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" >
-                            Logout
-                        </Button>
+                        <Grid Grid.Row="1" Margin="32,0,32,16" VerticalAlignment="Bottom" >
+                            <Button x:Name="logoutButton" FontSize="24" Height="48" Foreground="White" Click="logoutButton_Click" Padding="16,4,16,8" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" >
+                                Logout
+                            </Button>
+                        </Grid>
                     </Grid>
-                </Grid>
-            </TabItem>
+                </TabItem>
 
-        </TabControl>
+            </TabControl>
+
+        </DockPanel>
+
+
+
 
     </Grid>
 </Window>

@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("productsdatabase.mdf")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("productsdatabasemodelentity.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("productsdatabasemodelentity.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("productsdatabase_log.ldf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/jquery-2.1.1.intellisense.js")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/jquery-2.1.1.js")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("scripts/jquery-2.1.1.min.js")]

@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="Login Screen" Height="800" Width="1400"
         WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.3*"/>
@@ -23,19 +23,20 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="12*"/>
-                <RowDefinition Height="238*"/>
+                <RowDefinition Height="239*"/>
                 <RowDefinition Height="76*"/>
                 <RowDefinition Height="73*"/>
-                <RowDefinition Height="130*"/>
-                <RowDefinition Height="42*"/>
-                <RowDefinition Height="186*"/>
+                <RowDefinition Height="120*"/>
+                <RowDefinition Height="171*"/>
+                <RowDefinition Height="0*"/>
+                <RowDefinition Height="68*"/>
                 <RowDefinition Height="12*"/>
             </Grid.RowDefinitions>
 
             <Rectangle Fill="#FF1BB498"/>
 
             <Rectangle Fill="#FF1BB498"
-                Grid.Row="7"/>
+                Grid.Row="8"/>
 
 
             <TextBlock Text="SIGN IN TO YOUR ACCOUNT"
@@ -43,7 +44,7 @@
                        VerticalAlignment="Center"
                        FontSize="42px"
                        Grid.Row="1" FontWeight="ExtraBold" 
-                       Foreground="#FF1BB498" Height="56" Margin="102,98,101,84" Width="584"
+                       Foreground="#FF1BB498" Height="56" Margin="102,98,102,85" Width="584"
             />
 
             <Grid Grid.Row="2">
@@ -59,7 +60,6 @@
 
                 <TextBox
                     x:Name="emailField"
-                    Text="itsatifsiddiqui@gmail.com"
                      Grid.Column="2" HorizontalAlignment="Left" 
                      TextWrapping="WrapWithOverflow"
                      VerticalAlignment="Center" Padding="0"
@@ -86,7 +86,6 @@
 
                 <PasswordBox
                      x:Name="passwordField"
-                     Password="123456"
                      Grid.Column="2" HorizontalAlignment="Left" 
                      VerticalAlignment="Center" Padding="0"
                      Margin="16,12,0,12"
@@ -98,10 +97,27 @@
                      MinHeight="32"
                   />
             </Grid>
-            <Button x:Name="loginButton" Grid.Row="4"  Content="Login" 
-                    HorizontalAlignment="Left" Grid.RowSpan="1"
+            
+            
+            <ComboBox x:Name="usertypecomboBox"
+                    Grid.Row="4"
+                    Width="300"
+                    Padding="32,4"
+                    Height="48"
+                    Margin="96,40,0,16"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    SelectedIndex="0"
+             >
+                <ComboBoxItem Content="User" />
+                <ComboBoxItem Content="Admin"/>
+            </ComboBox>
+            
+            
+            <Button x:Name="loginButton" Grid.Row="5"  Content="Login" 
+                    HorizontalAlignment="Left"
                     VerticalAlignment="Center" 
-                    Width="300" Padding="32,4" Height="48" Margin="96,41,0,41"
+                    Width="300" Padding="32,4" Height="48" Margin="96,40,0,83"
                     Style="{StaticResource MaterialDesignRaisedButton}" Click="onLoginButtonClick"
                     />
         </Grid>
