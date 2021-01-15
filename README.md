@@ -1,0 +1,2 @@
+# VP-Project
+POS SYSTEM SHOWCASE APP IN WPF. 
